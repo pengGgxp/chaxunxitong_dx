@@ -3,20 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/bg.css" type="text/css"/>
+    <script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="/static/js/jquery-3.7.1.js"></script>
     <script src="/static/js/query_process.js"></script>
     <script src="/static/js/vue.min.js"></script>
 </head>
 <body>
-<div id="app" class="container mt-5">
-    <div>
+<div class="background" style="z-index: -99999999999">
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+</div>
+<div class="container mt-5">
+    <div class="cx-card p-5 m-3">
         {% csrf_token %}
-        <button id="anxuexiaosou" class="btn btn-primary">按学校搜</button>
-        <button id="anzhuanyesou" class="btn btn-secondary">按专业搜</button>
-        <div class="mt-3">
-            <label class="me-2">招生类型：
-                <select name="zhaoshengleixing" class="form-select">
+    <div class="row">
+        <div class="col-6 d-grid">
+        <button id="anxuexiaosou" class="btn btn-primary btn-block">按学校搜</button>
+            </div>
+        <div class="col-6 d-grid" >
+        <button id="anzhuanyesou" class="btn btn-secondary btn-block">按专业搜</button>
+            </div>
+    </div>
+        <div class="mt-3 d-grid row-cols-12">
+            <label class="me-2 mb-2 mt-2">招生类型：
+                <select name="zhaoshengleixing" class="form-select d-block me-2 mb-2 mt-2">
                     {% if leixing %}
                         {% for elem in leixing %}
                             <option value="{{ elem }}">{{ elem }}</option>
@@ -24,8 +54,8 @@
                     {% endif %}
                 </select>
             </label>
-            <label>年份:
-                <select name="nianfen" class="form-select">
+            <label class="me-2 mb-2 mt-2">年份:
+                <select name="nianfen" class="form-select d-block me-2 mb-2 mt-2">
                     {% if nian %}
                         {% for elem in nian %}
                             <option value="{{ elem }}">{{ elem }}</option>
@@ -58,18 +88,19 @@
                 {% endif %}
             </label>
         </div>
-        <div id="xuexiaomode" class="mt-3">
+        <div id="xuexiaomode" class="mt-3 d-grid">
             <label>
-                <input type="text" name="xuexiaomingcheng" class="form-control" placeholder="请输入学校名称">
+                <input type="text" name="xuexiaomingcheng" class="form-control d-block" placeholder="请输入学校名称">
             </label>
         </div>
-        <div id="zhuanyemode" class="mt-3">
+        <div id="zhuanyemode" class="mt-3 d-grid">
             <label>
-                <input type="text" name="zhuanyemingcheng" class="form-control" placeholder="请输入专业名称">
+                <input type="text" name="zhuanyemingcheng" class="form-control d-block" placeholder="请输入专业名称">
             </label>
         </div>
-        <div class="mt-3">
-            <button id="submit_btn" class="btn btn-success">查询</button>
+        <div class="mt-3 d-grid">
+            <button id="submit_btn" class="btn btn-success d-block">查询
+            <span id="submit_btn_load" class="spinner-border spinner-border-sm d-none"></span></button>
         </div>
     </div>
 
