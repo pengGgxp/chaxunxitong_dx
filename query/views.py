@@ -65,7 +65,7 @@ class query_processing(View):
             entry.update({'beizhu': beizhu, 'xuexiaomingcheng': xuexiaomingcheng})
 
         result_data['jieguo'] = json.dumps({'zhaoshengxinxi': tmp}, cls=DjangoJSONEncoder)
-        if querymode=='xuexiao':
+        if querymode == 'xuexiao':
             result = json.loads(result_data['jieguo'])
 
             new_dict = {}
@@ -83,7 +83,7 @@ class query_processing(View):
                     }
             return JsonResponse(new_dict)
 
-        if querymode=='zhuanye':
+        if querymode == 'zhuanye':
             result = json.loads(result_data['jieguo'])
 
             new_dict = {}

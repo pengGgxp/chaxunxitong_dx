@@ -7,7 +7,7 @@ from query.models import xuexiaoinfo, zhaoshengxinxi
 
 class XuexiaoinfoAdmin(admin.ModelAdmin):
     list_display = ('xuexiaomingcheng', 'xuexiaobiaoshima', 'zhuguanbumen', 'suozaidi', 'bianxuecengci','beizhu')
-
+    search_fields = ['xuexiaomingcheng']
 
 admin.site.register(xuexiaoinfo, XuexiaoinfoAdmin)
 
@@ -18,5 +18,6 @@ class ZhaoshengxinxiAdmin(admin.ModelAdmin):
     'zhuanyeleibie', 'kebaozhiyuansl', 'kaoshineirong','kaoshifangshi')
     list_filter = ('xuexiaomingcheng', 'zhaoshengleixing', 'xingzhi', 'nianfen', 'zhuanyeleibie','kaoshifangshi')
 
+    autocomplete_fields = ['xuexiaomingcheng']
 
 admin.site.register(zhaoshengxinxi, ZhaoshengxinxiAdmin)
