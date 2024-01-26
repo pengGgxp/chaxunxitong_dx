@@ -21,3 +21,12 @@ background: rgba( 255, 255, 255, 0.3 );
     background-color: #2b5be9;
 }
 
+
+.countdown{
+    background: #2b5be9;
+    border-radius: 25px;
+}
+
+.main{
+    max-width: 1320px;
+}

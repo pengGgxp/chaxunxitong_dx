@@ -7,7 +7,7 @@ from django.http import JsonResponse, QueryDict
 from django.shortcuts import render
 from django.views import View
 
-from query.models import zhaoshengxinxi, xuexiaoinfo
+from query.models import zhaoshengxinxi, xuexiaoinfo,days
 
 
 # Create your views here.
@@ -99,3 +99,9 @@ class query_processing(View):
                         'data': [entry],
                     }
             return JsonResponse(new_dict)
+
+def daojishi(request):
+    context = {
+        'day': days.objects.all()
+    }
+    return render(request,'query/days.html',context=context)

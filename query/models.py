@@ -57,3 +57,13 @@ class zhaoshengxinxi(models.Model):
     class Meta:
         verbose_name = '招生信息'
         verbose_name_plural = '招生信息'
+
+
+class days(models.Model):
+    day = models.DateTimeField(verbose_name='设置时间',null=False,default=datetime.datetime.now())
+    name = models.CharField(verbose_name='名字',null=False,default='NEW',max_length=200)
+    beizhu = models.TextField(verbose_name='备注',null=True,default='这里是备注')
+
+    class Meta:
+        verbose_name = '倒计时'
+        verbose_name_plural = '倒计时'

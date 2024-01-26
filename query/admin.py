@@ -1,8 +1,8 @@
 from django.contrib import admin
 from import_export.admin import ExportMixin, ImportExportModelAdmin
 
-from query.models import xuexiaoinfo, zhaoshengxinxi
-from query.resources import XuexiaoInfoResource, ZhaoshengXinxiResource
+from query.models import xuexiaoinfo, zhaoshengxinxi, days
+from query.resources import XuexiaoInfoResource, ZhaoshengXinxiResource, DaysResource
 
 
 # Register your models here.
@@ -26,3 +26,11 @@ class ZhaoshengxinxiAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(zhaoshengxinxi, ZhaoshengxinxiAdmin)
+
+class DaysAdmin(ImportExportModelAdmin):
+    list_display = (
+        'day','name','beizhu'
+    )
+    resource_class = DaysResource
+
+admin.site.register(days,DaysAdmin)
