@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css" type="text/css"/>
     <link rel="stylesheet" href="/static/css/bg.css" type="text/css"/>
     <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/day.css" type="text/css"/>
 </head>
 <body>
 <div class="background" style="z-index: -99999999999">
@@ -30,18 +31,22 @@
     <span></span>
     <span></span>
 </div>
-<div class="container-fluid" style="max-width: 680px;">
-    {% for d in day %}
-        <div class="mx-5 " style="">
-        <div class="cx-card p-3 mt-5 d-flex flex-row justify-content-between">
-            <div class="">
-                <div ><h1 class="display-5">{{ d.name }}还有</h1></div>
-                <div class="small">{{ d.beizhu }}</div>
+<div class="container-fluid d-flex flex-column vh-100" style="max-width: 680px;">
+    <div class=" mx-5 mt-2" style="">
+        <h2 class="day-title h2 mt-5 justify-content-center align-content-center">aaa</h2>
+        {% for d in day %}
+            <div class="cx-card p-3 mt-1 d-flex flex-row justify-content-between">
+                <div class="">
+                    <div><h1 class="display-5">{{ d.name }}还有</h1></div>
+                    <div class="small blockquote-footer mt-1 mb-0">{{ d.beizhu }}</div>
+                </div>
+                <div class="align-self-center p-2 text-white countdown"
+                     data-time="{{ d.day|date:"Y-m-d H:i:s" }}"></div>
             </div>
-            <div class="align-self-center p-2 text-white countdown" data-time="{{ d.day|date:"Y-m-d H:i:s" }}"></div>
-        </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+
+    </div>
+<footer class="mt-auto mx-5 text-center cx-card text-black-50">春考在握</footer>
 </div>
 <script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="/static/js/jquery-3.7.1.js"></script>

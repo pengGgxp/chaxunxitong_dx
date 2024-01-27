@@ -10,105 +10,110 @@
 </head>
 <body>
 <div class="background" style="z-index: -99999999999">
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
 </div>
-<div class="main container-fluid mt-5 ">
-    <div class="cx-card p-5 m-2">
-        {% csrf_token %}
-    <div class="row">
-        <div class="col-6 d-grid">
-        <button id="anxuexiaosou" class="btn btn-primary btn-block btn-bg">按学校搜</button>
+<div class="main container-fluid mt-5 d-flex flex-column vh-100">
+    <div class="content  ">
+        <div class="cx-card p-5 m-2">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-6 d-grid">
+                    <button id="anxuexiaosou" class="btn btn-primary btn-block btn-bg">按学校搜</button>
+                </div>
+                <div class="col-6 d-grid">
+                    <button id="anzhuanyesou" class="btn btn-light btn-block btn-bg">按专业搜</button>
+                </div>
             </div>
-        <div class="col-6 d-grid" >
-        <button id="anzhuanyesou" class="btn btn-light btn-block btn-bg">按专业搜</button>
+            <div class="mt-3 d-grid row-cols-12">
+                <label class="me-2 mb-2 mt-2">招生类型:
+                    <select name="zhaoshengleixing" class="form-select d-block me-2 mb-2 mt-2">
+                        {% if leixing %}
+                            {% for elem in leixing %}
+                                <option value="{{ elem }}">{{ elem }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                </label>
+                <label class="me-2 mb-2 mt-2">年份:
+                    <select name="nianfen" class="form-select d-block me-2 mb-2 mt-2">
+                        {% if nian %}
+                            {% for elem in nian %}
+                                <option value="{{ elem }}">{{ elem }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                </label>
             </div>
-    </div>
-        <div class="mt-3 d-grid row-cols-12">
-            <label class="me-2 mb-2 mt-2">招生类型:
-                <select name="zhaoshengleixing" class="form-select d-block me-2 mb-2 mt-2">
-                    {% if leixing %}
-                        {% for elem in leixing %}
-                            <option value="{{ elem }}">{{ elem }}</option>
+            <div class="mt-3">
+                <label class="me-2">办学性质:
+                    {% if banxuexingzhi %}
+                        {% for elem in banxuexingzhi %}
+                            <div class="form-check form-check-inline">
+                                <input name="banxuexingzhi" class="form-check-input" type="checkbox" value="{{ elem }}">
+                                <label class="form-check-label">{{ elem }}</label>
+                            </div>
                         {% endfor %}
                     {% endif %}
-                </select>
-            </label>
-            <label class="me-2 mb-2 mt-2">年份:
-                <select name="nianfen" class="form-select d-block me-2 mb-2 mt-2">
-                    {% if nian %}
-                        {% for elem in nian %}
-                            <option value="{{ elem }}">{{ elem }}</option>
+                </label>
+            </div>
+            <div class="mt-3">
+                <label class="me-2">考试方式:
+                    {% if fangshi %}
+                        {% for elem in fangshi %}
+                            <div class="form-check form-check-inline">
+                                <input name="kaoshifangshi" class="form-check-input" type="checkbox" value="{{ elem }}">
+                                <label class="form-check-label">{{ elem }}</label>
+                            </div>
                         {% endfor %}
                     {% endif %}
-                </select>
-            </label>
+                </label>
+            </div>
+            <div id="xuexiaomode" class="mt-3 d-grid">
+                <label>
+                    <input type="text" name="xuexiaomingcheng" class="form-control d-block"
+                           placeholder="请输入学校名称">
+                </label>
+            </div>
+            <div id="zhuanyemode" class="mt-3 d-grid">
+                <label>
+                    <input type="text" name="zhuanyemingcheng" class="form-control d-block"
+                           placeholder="请输入专业名称">
+                </label>
+            </div>
+            <div class="mt-3 d-grid">
+                <button id="submit_btn" class="btn btn-primary d-block btn-bg text-white">查询
+                    <span id="submit_btn_load" class="spinner-border spinner-border-sm d-none"></span></button>
+            </div>
         </div>
-        <div class="mt-3">
-            <label class="me-2">办学性质:
-                {% if banxuexingzhi %}
-                    {% for elem in banxuexingzhi %}
-                        <div class="form-check form-check-inline">
-                            <input name="banxuexingzhi" class="form-check-input" type="checkbox" value="{{ elem }}">
-                            <label class="form-check-label">{{ elem }}</label>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            </label>
-        </div>
-        <div class="mt-3">
-            <label class="me-2">考试方式:
-                {% if fangshi %}
-                    {% for elem in fangshi %}
-                        <div class="form-check form-check-inline">
-                            <input name="kaoshifangshi" class="form-check-input" type="checkbox" value="{{ elem }}">
-                            <label class="form-check-label">{{ elem }}</label>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            </label>
-        </div>
-        <div id="xuexiaomode" class="mt-3 d-grid">
-            <label>
-                <input type="text" name="xuexiaomingcheng" class="form-control d-block" placeholder="请输入学校名称">
-            </label>
-        </div>
-        <div id="zhuanyemode" class="mt-3 d-grid">
-            <label>
-                <input type="text" name="zhuanyemingcheng" class="form-control d-block" placeholder="请输入专业名称">
-            </label>
-        </div>
-        <div class="mt-3 d-grid">
-            <button id="submit_btn" class="btn btn-primary d-block btn-bg text-white">查询
-            <span id="submit_btn_load" class="spinner-border spinner-border-sm d-none"></span></button>
+
+        <div id="result-container" class="mt-5">
+
         </div>
     </div>
-
-    <div id="result-container" class="mt-5">
-
-    </div>
-    <div class="m-2 text-center cx-card text-black-50">春考在握</div>
+    <footer class="mt-auto text-center cx-card text-black-50">春考在握</footer>
 </div>
-    <script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="/static/js/jquery-3.7.1.js"></script>
-    <script src="/static/js/query_process.js"></script>
-    <script src="/static/js/vue.min.js"></script>
+
+<script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="/static/js/jquery-3.7.1.js"></script>
+<script src="/static/js/query_process.js"></script>
+<script src="/static/js/vue.min.js"></script>
 </body>
 </html>

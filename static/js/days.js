@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
     // 获取所有带有倒计时的元素
     var countdownElements = $('.countdown');
 
     // 对每个元素进行处理
-    countdownElements.each(function() {
+    countdownElements.each(function () {
         var targetTime = $(this).data('time');
 
         // 更新倒计时函数
@@ -31,5 +31,23 @@ $(document).ready(function() {
 
         // 设置定时器，每秒更新一次倒计时
         setInterval(updateCountdown.bind(this), 1000);
+    });
+
+    var title_date = $('.day-title');
+    title_date.each(function () {
+        function title_time() {
+            var currentDate = new Date();
+            var year = currentDate.getFullYear();
+            var month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // 月份从0开始，需要加1，并确保是两位数
+            var day = currentDate.getDate().toString().padStart(2, '0');
+            var hours = currentDate.getHours().toString().padStart(2, '0');
+            var minutes = currentDate.getMinutes().toString().padStart(2, '0');
+            var seconds = currentDate.getSeconds().toString().padStart(2, '0');
+            $(this).text(year + '年' + month + '月' + day + '日' + hours + '时' + minutes + '分' + seconds + '秒');
+        }
+        title_time.call(this);
+
+        setInterval(title_time.bind(this),1000);
+
     });
 });
