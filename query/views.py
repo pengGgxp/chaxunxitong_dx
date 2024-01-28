@@ -12,14 +12,19 @@ from query.models import zhaoshengxinxi, xuexiaoinfo, days, Images
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    logo_image = Images.objects.filter(is_logo=True).first()
+    watermark_image = Images.objects.filter(is_watermark=True).first()
+    context = {
+        'logo_image': logo_image,
+        'watermark_image': watermark_image,
+    }
+    return render(request, 'index.html', context=context)
 
 
 def cx(request):
     logo_image = Images.objects.filter(is_logo=True).first()
     watermark_image = Images.objects.filter(is_watermark=True).first()
     context = {
-        'sc': xuexiaoinfo.objects.all(),
         'leixing': zhaoshengxinxi.objects.values_list('zhaoshengleixing', flat=True).distinct(),
         'nian': zhaoshengxinxi.objects.values_list('nianfen', flat=True).distinct(),
         'banxuexingzhi': xuexiaoinfo.objects.values_list('beizhu', flat=True).distinct(),
