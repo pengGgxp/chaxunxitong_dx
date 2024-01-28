@@ -1,37 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>学校查询</title>
-    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css" type="text/css"/>
-    <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
-    <link rel="stylesheet" href="/static/css/bg.css" type="text/css"/>
+{% extends 'query/base_site.html' %}
 
-</head>
-<body>
-<div class="background" style="z-index: -99999999999">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-<div class="main container-fluid mt-5 d-flex flex-column vh-100">
-    <div class="content  ">
+{% block title %}
+    查询页面
+{% endblock %}
+{% block con %}
+    <div class="content ">
         <div class="cx-card p-5 m-2">
             {% csrf_token %}
             <div class="row">
@@ -108,12 +81,10 @@
 
         </div>
     </div>
-    <footer class="mt-auto text-center cx-card text-black-50">春考在握</footer>
-</div>
+{% endblock %}
 
-<script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
-<script src="/static/js/jquery-3.7.1.js"></script>
-<script src="/static/js/query_process.js"></script>
-<script src="/static/js/vue.min.js"></script>
-</body>
-</html>
+
+{% block script %}
+    <script src="/static/js/query_process.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+{% endblock %}

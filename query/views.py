@@ -7,7 +7,7 @@ from django.http import JsonResponse, QueryDict
 from django.shortcuts import render
 from django.views import View
 
-from query.models import zhaoshengxinxi, xuexiaoinfo,days
+from query.models import zhaoshengxinxi, xuexiaoinfo, days, Images
 
 
 # Create your views here.
@@ -16,12 +16,16 @@ def index(request):
 
 
 def cx(request):
+    logo_image = Images.objects.filter(is_logo=True).first()
+    watermark_image = Images.objects.filter(is_watermark=True).first()
     context = {
         'sc': xuexiaoinfo.objects.all(),
         'leixing': zhaoshengxinxi.objects.values_list('zhaoshengleixing', flat=True).distinct(),
         'nian': zhaoshengxinxi.objects.values_list('nianfen', flat=True).distinct(),
         'banxuexingzhi': xuexiaoinfo.objects.values_list('beizhu', flat=True).distinct(),
         'fangshi': zhaoshengxinxi.objects.values_list('kaoshifangshi', flat=True).distinct(),
+        'logo_image': logo_image,
+        'watermark_image': watermark_image,
     }
 
     return render(request, 'query/zhuankexuexiaocx.html', context=context)
@@ -101,7 +105,11 @@ class query_processing(View):
             return JsonResponse(new_dict)
 
 def daojishi(request):
+    logo_image = Images.objects.filter(is_logo=True).first()
+    watermark_image = Images.objects.filter(is_watermark=True).first()
     context = {
-        'day': days.objects.all()
+        'day': days.objects.all(),
+        'logo_image': logo_image,
+        'watermark_image': watermark_image,
     }
-    return render(request,'query/days.html',context=context)
+    return render(request, 'query/days.html',context=context)

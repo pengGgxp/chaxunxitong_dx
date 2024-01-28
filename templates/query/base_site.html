@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/bg.css" type="text/css"/>
+{% if logo_image %}
+    <link rel="shortcut icon" href="/{{ logo_image.image }}" type="image/x-icon">
+{% endif %}
+    {% block link %}
+
+    {% endblock %}
+    {% block style %}
+
+    {% endblock %}
+</head>
+<body>
+<div class="background" style="z-index: -99999999999">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div id="container" class="container pt-5 d-flex flex-column vh-100">
+    {% block con %}
+    {% endblock %}
+    <footer class="mt-auto text-center cx-card text-black-50">春考在握</footer>
+     {% if watermark_image %}
+        <div class="mb-5 fixed-bottom text-center" style="position: fixed; opacity: 0.6; z-index: 1000;"><img style="width: 120px;" src="/{{ watermark_image.image }}" alt="Watermark"></div>
+    {% endif %}
+</div>
+
+<script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="/static/js/jquery-3.7.1.js"></script>
+{% block script %}
+
+{% endblock %}
+</body>
+</html>

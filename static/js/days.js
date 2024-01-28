@@ -17,7 +17,7 @@ $(document).ready(function () {
             var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
             // 更新元素的文本内容
-            $(this).text(days + "天 " + hours + "时 " + minutes + "分 " + seconds + "秒");
+            $(this).text(days + "天" + hours + "时" + minutes + "分" + seconds + '秒');
 
             // 如果倒计时结束，可以执行相应的操作，比如隐藏元素
             if (timeDifference <= 0) {

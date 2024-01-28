@@ -1,32 +1,45 @@
 .cx-card {
-background: rgba( 255, 255, 255, 0.7 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 19px );
--webkit-backdrop-filter: blur( 19px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(19px);
+    -webkit-backdrop-filter: blur(19px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .cx-card-hover:hover {
     box-shadow: 0 14px 25px rgba(0, 0, 0, .16);
 }
 
-.cx-content-only-card{
-background: rgba( 255, 255, 255, 0.3 );
+.cx-content-only-card {
+    background: rgba(255, 255, 255, 0.3);
 
 
 }
 
-.btn-bg{
+.btn-bg {
     background-color: #2b5be9;
 }
 
 
-.countdown{
+.countdown {
     background: #2b5be9;
     border-radius: 25px;
 }
 
-.main{
+.main {
     max-width: 1320px;
+}
+
+
+@font-face {
+    font-family: 'misans';
+    src: local("/static/font/MiSans-Bold.ttf");
+}
+
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    font-family: "misans", sans-serif;
 }
