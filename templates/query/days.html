@@ -1,11 +1,12 @@
-{% extends 'query/base_site.html' %}
+{% extends 'base_site.html' %}
+{% load static %}
 
 {% block title %}
     倒计时
 {% endblock %}
 
 {% block link %}
-    <link rel="stylesheet" href="/static/css/day.css" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/day.css' %}" type="text/css"/>
 {% endblock %}
 
 {% block style %}
@@ -35,6 +36,6 @@
 
 
 {% block script %}
-<script src="/static/js/days.js"></script>
+<script src="{% static 'js/days.js' %}"></script>
 {% endblock %}
 
