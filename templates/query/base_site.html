@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css" type="text/css"/>
     <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
     <link rel="stylesheet" href="/static/css/bg.css" type="text/css"/>
-{% if logo_image %}
-    <link rel="shortcut icon" href="/{{ logo_image.image }}" type="image/x-icon">
-{% endif %}
+    {% if logo_image %}
+        <link rel="shortcut icon" href="/{{ logo_image.image }}" type="image/x-icon">
+    {% endif %}
     {% block link %}
 
     {% endblock %}
@@ -41,11 +41,11 @@
     <span></span>
 </div>
 <div id="container" class="container pt-5 d-flex flex-column vh-100">
-<nav class="navbar navbar-expand-lg navbar-light bg-light cx-card">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light cx-card">
         <div class="container">
             <a class="navbar-brand" href="#">春考在握</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarNav">
@@ -66,8 +66,9 @@
     {% block con %}
     {% endblock %}
     <footer class="mt-auto text-center cx-card text-black-50">春考在握</footer>
-     {% if watermark_image %}
-        <img class="mb-5 fixed-bottom me-auto ms-auto" style="width: 120px; opacity: 0.6;" src="/{{ watermark_image.image }}" alt="Watermark">
+    {% if watermark_image %}
+        <img class="mb-5 fixed-bottom me-auto ms-auto" style="width: 120px; opacity: 0.6;"
+             src="/{{ watermark_image.image }}" alt="Watermark">
     {% endif %}
 </div>
 
@@ -76,10 +77,10 @@
 {% block script %}
 
 {% endblock %}
-    <script>
-$(document).ready(function() {
+<script>
+    $(document).ready(function () {
         var currentPageUrl = window.location.pathname;
-        $('.nav-link').each(function() {
+        $('.nav-link').each(function () {
             if ($(this).attr('href') === currentPageUrl) {
                 $(this).addClass('active');
             }

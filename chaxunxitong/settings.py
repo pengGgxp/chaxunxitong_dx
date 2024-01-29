@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-wrhg@$%1&&!_#0^zv!$2jspbe&+354hj#*8tx#b8$(tl9^r9+w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'chaxunxitong.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "NAME": "chaxun",
+        "ENGINE": "django.db.backends.mysql",
+        "USER": "root",
+        "PASSWORD": "123456",
+        "HOST": '127.0.0.1',
+        "PORT": '3306',
     }
 }
 
@@ -123,4 +127,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DATA_UPLOAD_MAX_NUMBER_FIELDS = 100000000
+# DATA_UPLOAD_MAX_NUMBER_FIELDS = 100000000

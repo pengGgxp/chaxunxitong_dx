@@ -65,7 +65,7 @@ class zhaoshengxinxi(models.Model):
 
 
 class days(models.Model):
-    day = models.DateTimeField(verbose_name='设置时间', null=False, default=datetime.datetime.now())
+    day = models.DateTimeField(verbose_name='设置时间', null=False, default=('2004','03','21','2','00','30'))
     name = models.CharField(verbose_name='名字', null=False, default='NEW', max_length=200)
     beizhu = models.TextField(verbose_name='备注', null=True, default='这里是备注')
 
