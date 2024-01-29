@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% static 'css/bg.css' %}" type="text/css"/>
     {% if logo_image %}
-        <link rel="shortcut icon" href="/{{ logo_image.image }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ logo_image.image.url }}" type="image/x-icon">
     {% endif %}
     {% block link %}
 
@@ -69,7 +70,7 @@
     <footer class="mt-auto text-center cx-card text-black-50">春考在握</footer>
     {% if watermark_image %}
         <img class="mb-5 fixed-bottom me-auto ms-auto" style="width: 120px; opacity: 0.6;"
-             src="/{{ watermark_image.image }}" alt="Watermark">
+             src="{{ watermark_image.image.url }}" alt="Watermark">
     {% endif %}
 </div>
 

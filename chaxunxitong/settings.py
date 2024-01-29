@@ -74,15 +74,22 @@ WSGI_APPLICATION = 'chaxunxitong.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
     'default': {
-        "NAME": "chaxun",
         "ENGINE": "django.db.backends.mysql",
+        "NAME": "chaxun",
         "USER": "root",
         "PASSWORD": "123456",
-        "HOST": '127.0.0.1',
+        "HOST": 'localhost',
         "PORT": '3306',
     }
 }
+
+#防止数据导入失败出现配置错误提示
+IMPORT_EXPORT_USE_TRANSACTIONS = False
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -120,13 +127,19 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    BASE_DIR / "media",
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
+
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CSRF_TRUSTED_ORIGINS = []
 # DATA_UPLOAD_MAX_NUMBER_FIELDS = 100000000

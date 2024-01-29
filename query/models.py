@@ -7,7 +7,7 @@ from django.db import models
 class xuexiaoinfo(models.Model):
     # xuexiaomingcheng = models.CharField(verbose_name='学校名称', max_length=200)
     xuexiaomingcheng = models.CharField(verbose_name='学校名称', max_length=200)
-    xuexiaobiaoshima = models.IntegerField(verbose_name='学校标识码', default=4111010001, null=True, blank=True)
+    xuexiaobiaoshima = models.TextField(verbose_name='学校标识码', default='4111010001', null=True, blank=True)
     zhuguanbumen = models.CharField(verbose_name='主管部门', max_length=200, null=True, blank=True)
     suozaidi = models.CharField(verbose_name='所在地', max_length=200, null=True, blank=True)
 
@@ -75,7 +75,7 @@ class days(models.Model):
 
 
 class Images(models.Model):
-    image = models.ImageField(upload_to='static/imgs/admin/', verbose_name='路径')
+    image = models.ImageField(upload_to='imgs/admin/', verbose_name='路径')
     is_logo = models.BooleanField(default=False, verbose_name='LOGO')
     is_watermark = models.BooleanField(default=False, verbose_name='水印')
 
