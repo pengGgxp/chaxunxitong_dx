@@ -6,9 +6,9 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
-    path('cx/', views.cx),
-    path('cx/query/zhuanye/', views.query_processing.as_view()),
-    path('cx/query/xuexiao/', views.query_processing.as_view()),
+    path('cx_danzhao/', views.cx),
+    path('query/danzhao/zhuanye/', views.query_danzhao_processing.as_view()),
+    path('query/danzhao/xuexiao/', views.query_danzhao_processing.as_view()),
     path('days/', views.daojishi),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}, name='media'),
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}, name='static'),

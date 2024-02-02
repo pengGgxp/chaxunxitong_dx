@@ -7,7 +7,7 @@ from django.db import models
 class xuexiaoinfo(models.Model):
     # xuexiaomingcheng = models.CharField(verbose_name='学校名称', max_length=200)
     xuexiaomingcheng = models.CharField(verbose_name='学校名称', max_length=200)
-    xuexiaobiaoshima = models.TextField(verbose_name='学校标识码', default='4111010001', null=True, blank=True)
+    xuexiaobiaoshima = models.TextField(verbose_name='学校标识码', default='411101   0001', null=True, blank=True)
     zhuguanbumen = models.CharField(verbose_name='主管部门', max_length=200, null=True, blank=True)
     suozaidi = models.CharField(verbose_name='所在地', max_length=200, null=True, blank=True)
 
@@ -35,7 +35,7 @@ class xuexiaoinfo(models.Model):
         verbose_name_plural = '学校信息'
 
 
-class zhaoshengxinxi(models.Model):
+class zhaoshengxinxi_danzhao(models.Model):
     xuexiaomingcheng = models.ForeignKey(xuexiaoinfo, on_delete=models.CASCADE, verbose_name='学校名称', null=True,
                                          blank=True)
     zhuanyemingcheng = models.CharField(verbose_name='专业名称', max_length=200, null=True, blank=True)
@@ -60,8 +60,8 @@ class zhaoshengxinxi(models.Model):
                                      default='线下', null=True, blank=True)
 
     class Meta:
-        verbose_name = '招生信息'
-        verbose_name_plural = '招生信息'
+        verbose_name = '招生信息-单招'
+        verbose_name_plural = '招生信息-单招'
 
 
 class days(models.Model):

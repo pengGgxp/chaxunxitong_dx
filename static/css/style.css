@@ -1,3 +1,13 @@
+
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    font-family: "misans", sans-serif;
+    letter-spacing:1px;
+}
+
+
 .cx-card {
     background: rgba(255, 255, 255, 0.7);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -31,15 +41,36 @@
     max-width: 1320px;
 }
 
+.border-cx{
+    border: 1px solid rgb(204, 204, 204);
+}
+
+.danzhaocx-xuexiao-card-xuexiao{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.danzhaocx-xuexiao-card-header{
+    background-color: rgba(43, 91, 233, 0.9);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px);
+    padding: 0.5rem 1rem;
+}
+
+.danzhaocx-xuexiao-card-header-mb{
+    background-color: rgba(233, 43, 43, 0.9);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px);
+    padding: 0.5rem 1rem;
+}
+
+.danzhaocx-xuexiao-card-content{
+    background-color:rgba(0, 0, 0, 0.03);
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px);
+    padding: 0.5rem 1rem;
+}
 
 @font-face {
     font-family: 'misans';
     src: local("/static/font/MiSans-Bold.ttf");
 }
 
-* {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    font-family: "misans", sans-serif;
-}

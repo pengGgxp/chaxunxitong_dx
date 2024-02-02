@@ -7,7 +7,7 @@ from django.http import JsonResponse, QueryDict
 from django.shortcuts import render
 from django.views import View
 
-from query.models import zhaoshengxinxi, xuexiaoinfo, days, Images
+from query.models import zhaoshengxinxi_danzhao, xuexiaoinfo, days, Images
 
 
 # Create your views here.
@@ -25,18 +25,18 @@ def cx(request):
     logo_image = Images.objects.filter(is_logo=True).first()
     watermark_image = Images.objects.filter(is_watermark=True).first()
     context = {
-        'leixing': zhaoshengxinxi.objects.values_list('zhaoshengleixing', flat=True).distinct(),
-        'nian': zhaoshengxinxi.objects.values_list('nianfen', flat=True).distinct(),
+        'leixing': zhaoshengxinxi_danzhao.objects.values_list('zhaoshengleixing', flat=True).distinct(),
+        'nian': zhaoshengxinxi_danzhao.objects.values_list('nianfen', flat=True).distinct(),
         'banxuexingzhi': xuexiaoinfo.objects.values_list('beizhu', flat=True).distinct(),
-        'fangshi': zhaoshengxinxi.objects.values_list('kaoshifangshi', flat=True).distinct(),
+        'fangshi': zhaoshengxinxi_danzhao.objects.values_list('kaoshifangshi', flat=True).distinct(),
         'logo_image': logo_image,
         'watermark_image': watermark_image,
     }
 
-    return render(request, 'query/zhuankexuexiaocx.html', context=context)
+    return render(request, 'query/cx_danzhao.html', context=context)
 
 
-class query_processing(View):
+class query_danzhao_processing(View):
     @staticmethod
     def post(request):
         querymode = request.POST.get('querymode')
@@ -47,7 +47,7 @@ class query_processing(View):
         mingcheng = request.POST.get('mingcheng')
 
         result_data = {}
-        queryset = zhaoshengxinxi.objects.all()
+        queryset = zhaoshengxinxi_danzhao.objects.all()
         queryset = queryset.select_related('xuexiaomingcheng')
         if querymode == 'xuexiao':
             if mingcheng:
@@ -88,6 +88,9 @@ class query_processing(View):
                     new_dict[xuexiaomingcheng_id] = {
                         'xuexiaomingcheng': entry['xuexiaomingcheng'],
                         'beizhu': entry['beizhu'],
+                        'kaoshifangshi': entry['kaoshifangshi'],
+                        'kebaozhiyuansl': entry['kebaozhiyuansl'],
+                        'kaoshineirong': entry['kaoshineirong'],
                         'data': [entry],
                     }
             return JsonResponse(new_dict)
@@ -105,6 +108,9 @@ class query_processing(View):
                     new_dict[zhuanyemingcheng] = {
                         'xuexiaomingcheng': entry['xuexiaomingcheng'],
                         'beizhu': entry['beizhu'],
+                        'kaoshifangshi': entry['kaoshifangshi'],
+                        'kebaozhiyuansl': entry['kebaozhiyuansl'],
+                        'kaoshineirong': entry['kaoshineirong'],
                         'data': [entry],
                     }
             return JsonResponse(new_dict)

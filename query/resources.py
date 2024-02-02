@@ -1,7 +1,7 @@
 from import_export import resources, fields
 from import_export.widgets import ForeignKeyWidget
 
-from .models import xuexiaoinfo, zhaoshengxinxi, days
+from .models import xuexiaoinfo, zhaoshengxinxi_danzhao, days
 
 
 class XuexiaoInfoResource(resources.ModelResource):
@@ -34,7 +34,7 @@ class XuexiaoInfoResource(resources.ModelResource):
         model = xuexiaoinfo
 
 
-class ZhaoshengXinxiResource(resources.ModelResource):
+class ZhaoshengXinxi_DanZhaoResource(resources.ModelResource):
     xuexiaomingcheng = fields.Field(
         column_name='院校名称',
         attribute='xuexiaomingcheng',
@@ -83,7 +83,7 @@ class ZhaoshengXinxiResource(resources.ModelResource):
     )
 
     class Meta:
-        model = zhaoshengxinxi
+        model = zhaoshengxinxi_danzhao
 
 
 class DaysResource(resources.ModelResource):

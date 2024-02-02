@@ -4,9 +4,24 @@
 {% block title %}
     查询页面
 {% endblock %}
+{% block style %}
+    <style>
+        .round-xz {
+            background-color: #2b5be9;
+            border-radius: 20px;
+        }
+
+        .round-xz-mb{
+            background-color: #e92b2b;
+            border-radius: 20px;
+        }
+
+
+    </style>
+{% endblock %}
 {% block con %}
     <div class="content ">
-        <div class="cx-card p-5 m-2">
+        <div class="cx-card p-5 mt-3">
             {% csrf_token %}
             <div class="row">
                 <div class="col-6 d-grid">
@@ -78,14 +93,50 @@
             </div>
         </div>
 
-        <div id="result-container" class="mt-5">
+        <div id="result-container" class="mt-3">
+            <div class="cx-card border-cx mb-3 p-2">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="btn d-flex flex-fill flex-row align-content-center justify-content-between px-0"
+                           data-bs-toggle="collapse" href="#collapse_0">
+                            <div class="text-black "><strong>宠物医疗技术</strong></div>
+                            <div class=""><strong>专业类别:</strong> 畜牧养殖</div>
+                        </a>
+                    </div>
+                    <div id="collapse_0" class="collapse show">
+                        <div class="card-body d-flex flex-fill flex-row align-content-center justify-content-between px-3 pb-0">
+                            <div class="mb-3"><strong>招生计划:</strong> 10</div>
+                            <div class="mb-3"><strong>学费:</strong> 0</div>
+                            <div class="mb-3"><strong>招生类型:</strong> 单独招生</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3 mt-3 px-2">
+                    <div class="d-flex align-content-center justify-content-between danzhaocx-xuexiao-card-xuexiao mb-1">
+                        <div class="my-3"><strong>学校名称:</strong> 德州科技职业学院</div>
+                        <div class="my-3 me-3 round-xz px-3 text-white"> 民办</div>
+                    </div>
+                    <div class="d-flex flex-column mb-3 ">
+                        <div class="d-flex flex-fill flex-row align-content-center justify-content-between danzhaocx-xuexiao-card-header text-white">
+                            <div><strong>考试方式:</strong> 线下</div>
+                            <div><strong>可报志愿数量:</strong> 3个</div>
+                            <div class="toggle-btn"><strong>考试内容<span class="triangle ps-1"><i
+                                    class="fas fa-caret-down "></i></span></strong></div>
+                        </div>
+                        <div class="danzhaocx-xuexiao-card-content"><strong
+                                style="color: #2b5be9">考试内容：</strong>aaaaa
+                        </div>
+                    </div>
+                </div>
 
+            </div>
         </div>
     </div>
 {% endblock %}
 
 
 {% block script %}
-    <script src="{% static 'js/query_process.js' %}"></script>
+        <script src="{% static 'js/query_danzhao_process.js' %}"></script>
     <script src="{% static 'js/vue.min.js' %}"></script>
+
 {% endblock %}
