@@ -219,20 +219,3 @@ class query_fenshuxian_processing(View):
                         'data': [entry],
                     }
         return JsonResponse(new_dict)
-
-    '''
-    {
-    "querymode": "zhuanye",
-    "nianfen": "2024",
-    "banxuexingzhi": [],
-    "zhuanyeleibie": "网络技术",
-    "fenshu": "",
-    "weici": "",
-    "mingcheng": "",
-    "zhuan_ben": "本科"
-    }
-'''
-
-
-'''
-{'jieguo': '[{"id": 1, "xuexiaomingcheng_id": 3, "zhuanyeleibie": "\\u7f51\\u7edc\\u6280\\u672f", "zhaoshengzhuanye": "\\u7f51\\u7edc\\u6280\\u672faaa", "zuidifenshu": 500, "zuidiweici": 200, "benkezigexian": 486, "zhuankezigexian": null, "nianfen": 2024, "xuexiaomingcheng_xuexiaomingcheng": "\\u5317\\u4eac\\u5927\\u5b66", "beizhu_xuexiaomingcheng": "\\u516c\\u529e"}]'}'''

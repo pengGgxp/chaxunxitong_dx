@@ -7,7 +7,7 @@
     <title>
         {% block title %}
         {% endblock %} | 春考在握</title>
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% static 'css/bg.css' %}" type="text/css"/>
     <link rel="stylesheet" href="{% static 'fontawesome-free-6.4.0-web/css/all.min.css' %}"/>
@@ -87,9 +87,9 @@
     {% endif %}
 </div>
 
-<script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'js/jquery-3.7.1.js' %}"></script>
-<script src="{% static 'fontawesome-free-6.4.0-web/js/all.js' %}"></script>
+<script src="{% static 'fontawesome-free-6.4.0-web/js/all.min.js' %}"></script>
 {% block script %}
 
 {% endblock %}
