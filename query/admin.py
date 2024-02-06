@@ -1,8 +1,8 @@
 from django.contrib import admin
 from import_export.admin import ExportMixin, ImportExportModelAdmin
 
-from query.models import xuexiaoinfo, zhaoshengxinxi_danzhao, days, Images
-from query.resources import XuexiaoInfoResource, ZhaoshengXinxi_DanZhaoResource, DaysResource
+from query.models import xuexiaoinfo, zhaoshengxinxi_danzhao, days, Images, fenshuxianchaxun
+from query.resources import XuexiaoInfoResource, ZhaoshengXinxi_DanZhaoResource, DaysResource, fenshuxianchaxunResource
 from query.form import ImagesForm
 
 
@@ -41,9 +41,21 @@ admin.site.register(days, DaysAdmin)
 
 class ImagesAdmin(admin.ModelAdmin):
     list_display = (
-        'id','image', 'is_logo', 'is_watermark'
+        'id', 'image', 'is_logo', 'is_watermark'
     )
     form = ImagesForm
 
 
 admin.site.register(Images, ImagesAdmin)
+
+
+class fenshuxianchaxunAdmin(ImportExportModelAdmin):
+    list_display = (
+        'xuexiaomingcheng', 'zhuanyeleibie', 'zhaoshengzhuanye', 'zuidifenshu', 'zuidiweici', 'benkezigexian',
+        'zhuankezigexian', 'nianfen'
+    )
+    autocomplete_fields = ['xuexiaomingcheng']
+    resource_class = fenshuxianchaxunResource
+
+
+admin.site.register(fenshuxianchaxun, fenshuxianchaxunAdmin)

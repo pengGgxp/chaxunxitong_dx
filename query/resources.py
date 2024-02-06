@@ -1,7 +1,7 @@
 from import_export import resources, fields
 from import_export.widgets import ForeignKeyWidget
 
-from .models import xuexiaoinfo, zhaoshengxinxi_danzhao, days
+from .models import xuexiaoinfo, zhaoshengxinxi_danzhao, days, fenshuxianchaxun
 
 
 class XuexiaoInfoResource(resources.ModelResource):
@@ -89,3 +89,44 @@ class ZhaoshengXinxi_DanZhaoResource(resources.ModelResource):
 class DaysResource(resources.ModelResource):
     class Meta:
         model = days
+
+
+class fenshuxianchaxunResource(resources.ModelResource):
+    xuexiaomingcheng = fields.Field(
+        column_name='院校名称',
+        attribute='xuexiaomingcheng',
+        widget=ForeignKeyWidget(xuexiaoinfo, 'xuexiaomingcheng')
+    )
+    zhuanyeleibie = fields.Field(
+        column_name='专业类别',
+        attribute='zhuanyeleibie',
+    )
+    zhaoshengzhuanye = fields.Field(
+        column_name='招生专业',
+        attribute='zhaoshengzhuanye',
+    )
+    zuidifenshu = fields.Field(
+        column_name='最低分数',
+        attribute='zuidifenshu',
+    )
+    zuidiweici = fields.Field(
+        column_name='最低位次',
+        attribute='zuidiweici',
+    )
+    benkezigexian = fields.Field(
+        column_name='本科资格线',
+        attribute='benkezigexian',
+    )
+
+    zhuankezigexian = fields.Field(
+        column_name='专科资格线',
+        attribute='zhuankezigexian',
+    )
+
+    nianfen = fields.Field(
+        column_name='年份',
+        attribute='nianfen',
+    )
+
+    class Meta:
+        model = fenshuxianchaxun

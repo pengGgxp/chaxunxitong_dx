@@ -6,10 +6,11 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
-    path('cx_danzhao/', views.cx),
+    path('cx_danzhao/', views.cx_danzhao),
     path('query/danzhao/zhuanye/', views.query_danzhao_processing.as_view()),
     path('query/danzhao/xuexiao/', views.query_danzhao_processing.as_view()),
     path('days/', views.daojishi),
+    path('cx_benkefenshuxian/', views.cx_benkefenshuxian),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}, name='media'),
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}, name='static'),
 ]

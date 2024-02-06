@@ -36,7 +36,7 @@ class xuexiaoinfo(models.Model):
 
 
 class zhaoshengxinxi_danzhao(models.Model):
-    xuexiaomingcheng = models.ForeignKey(xuexiaoinfo, on_delete=models.CASCADE, verbose_name='学校名称', null=True,
+    xuexiaomingcheng = models.ForeignKey(xuexiaoinfo, on_delete=models.CASCADE, verbose_name='学校名称', null=False,
                                          blank=True)
     zhuanyemingcheng = models.CharField(verbose_name='专业名称', max_length=200, null=True, blank=True)
     zhaoshengjihua = models.IntegerField(verbose_name='招生计划', null=True, blank=True)
@@ -79,7 +79,21 @@ class Images(models.Model):
     is_logo = models.BooleanField(default=False, verbose_name='LOGO')
     is_watermark = models.BooleanField(default=False, verbose_name='水印')
 
-
     class Meta:
         verbose_name = '图片功能'
         verbose_name_plural = '图片功能'
+
+
+class fenshuxianchaxun(models.Model):
+    xuexiaomingcheng = models.ForeignKey(xuexiaoinfo, on_delete=models.CASCADE, verbose_name='学校名称')
+    zhuanyeleibie = models.CharField(max_length=200, verbose_name='专业类别')
+    zhaoshengzhuanye = models.CharField(max_length=200, verbose_name='招生专业')
+    zuidifenshu = models.IntegerField(verbose_name='最低分数')
+    zuidiweici = models.IntegerField(verbose_name='最低位次')
+    benkezigexian = models.IntegerField(verbose_name='本科资格线', null=True)
+    zhuankezigexian = models.IntegerField(verbose_name='专科资格线', null=True)
+    nianfen = models.DateTimeField(verbose_name='年份', default=datetime.datetime.now().year)
+
+    class Meta:
+        verbose_name = '分数线查询'
+        verbose_name_plural = '分数线查询'

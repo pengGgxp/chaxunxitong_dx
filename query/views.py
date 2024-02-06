@@ -21,7 +21,7 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 
-def cx(request):
+def cx_danzhao(request):
     logo_image = Images.objects.filter(is_logo=True).first()
     watermark_image = Images.objects.filter(is_watermark=True).first()
     context = {
@@ -115,6 +115,7 @@ class query_danzhao_processing(View):
                     }
             return JsonResponse(new_dict)
 
+
 def daojishi(request):
     logo_image = Images.objects.filter(is_logo=True).first()
     watermark_image = Images.objects.filter(is_watermark=True).first()
@@ -123,4 +124,19 @@ def daojishi(request):
         'logo_image': logo_image,
         'watermark_image': watermark_image,
     }
-    return render(request, 'query/days.html',context=context)
+    return render(request, 'query/days.html', context=context)
+
+
+def cx_benkefenshuxian(request):
+    logo_image = Images.objects.filter(is_logo=True).first()
+    watermark_image = Images.objects.filter(is_watermark=True).first()
+    context = {
+        'leixing': zhaoshengxinxi_danzhao.objects.values_list('zhaoshengleixing', flat=True).distinct(),
+        'nian': zhaoshengxinxi_danzhao.objects.values_list('nianfen', flat=True).distinct(),
+        'banxuexingzhi': xuexiaoinfo.objects.values_list('beizhu', flat=True).distinct(),
+        'fangshi': zhaoshengxinxi_danzhao.objects.values_list('kaoshifangshi', flat=True).distinct(),
+        'logo_image': logo_image,
+        'watermark_image': watermark_image,
+    }
+
+    return render(request, 'query/cx_benkefenshuxian.html', context=context)
