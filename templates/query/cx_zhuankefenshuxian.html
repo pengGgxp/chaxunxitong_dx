@@ -1,7 +1,7 @@
 {% extends 'base_site.html' %}
 {% load static %}
 {% block title %}
-    本科分数线查询
+    专科分数线查询
 {% endblock %}
 
 {% block link %}
@@ -27,7 +27,7 @@
     <div class="content ">
         <div class="cx-card p-5 mt-3">
             {% csrf_token %}
-            <input type="hidden" name="zhuan_ben" value="本科">
+            <input type="hidden" name="zhuan_ben" value="专科">
             <div class="row">
                 <div class="col-6 d-grid">
                     <button id="anxuexiaosou" class="btn btn-primary btn-block btn-bg">按学校搜</button>

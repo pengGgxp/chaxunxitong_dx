@@ -90,7 +90,7 @@ function query_cx_danzhao(querymode) {
                         var htmlContent = '<div class="card mb-3 mt-3 px-2">';
                         htmlContent += '<div class="d-flex align-content-center justify-content-between danzhaocx-xuexiao-card-xuexiao mb-1 ">';
                         htmlContent += '<div class="my-3"><strong>学校名称:</strong> ' + item.xuexiaomingcheng_xuexiaomingcheng + '</div>';
-                        if (item.beizhu === '民办') {
+                        if (item.beizhu_xuexiaomingcheng === '民办') {
                             htmlContent += '<div class="my-3 me-3 round-xz-mb px-3 text-white small my-auto"> <strong>' + item.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
                         } else {
                             htmlContent += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong>' + item.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
@@ -99,7 +99,7 @@ function query_cx_danzhao(querymode) {
                         htmlContent += '</div>';
 
                         htmlContent += '<div class="d-flex flex-column mb-3">';
-                        if (item.beizhu === '民办') {
+                        if (item.beizhu_xuexiaomingcheng === '民办') {
                             htmlContent += '<div class="d-flex flex-fill flex-row align-content-center justify-content-between danzhaocx-xuexiao-card-header-mb text-white mt-3">';
                         } else {
                             htmlContent += '<div class="d-flex flex-fill flex-row align-content-center justify-content-between danzhaocx-xuexiao-card-header  text-white mt-3">';
@@ -108,7 +108,7 @@ function query_cx_danzhao(querymode) {
                         htmlContent += '<div><strong>可报志愿数量:</strong> ' + item.kebaozhiyuansl + '</div>';
                         htmlContent += '<div class="toggle-btn"><strong>考试内容<span class="triangle ps-1"><i class="fas fa-caret-down "></i></span></strong></div>';
                         htmlContent += '</div>';
-                        if (item.beizhu === '民办') {
+                        if (item.beizhu_xuexiaomingcheng === '民办') {
                             htmlContent += '<div class="danzhaocx-xuexiao-card-content pt-3"><strong style="color: #e92b2b">考试内容：</strong> ' + item.kaoshineirong + '</div>';
                         } else {
                             htmlContent += '<div class="danzhaocx-xuexiao-card-content pt-3"><strong style="color: #2b5be9">考试内容：</strong> ' + item.kaoshineirong + '</div>';
@@ -175,28 +175,28 @@ function query_cx_danzhao(querymode) {
 
                             htmlContent2 += '<div class="card mb-3 mt-3 px-2">';
                             htmlContent2 += '<div class="d-flex align-content-center justify-content-between danzhaocx-xuexiao-card-xuexiao mb-1">';
-                            htmlContent2 += '<div class="my-3"><strong>学校名称:</strong> ' + item2.xuexiaomingcheng_xuexiaomingcheng + '</div>';
-                            if (item2.beizhu === '民办') {
-                                htmlContent2 += '<div class="my-3 me-3 round-xz-mb px-3 text-white small my-auto"> <strong>' + item2.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
+                            htmlContent2 += '<div class="my-3"><strong>学校名称:</strong> ' + entry2.xuexiaomingcheng_xuexiaomingcheng + '</div>';
+                            if (entry2.beizhu_xuexiaomingcheng === '民办') {
+                                htmlContent2 += '<div class="my-3 me-3 round-xz-mb px-3 text-white small my-auto"> <strong>' + entry2.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
                             } else {
-                                htmlContent2 += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong>' + item2.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
+                                htmlContent2 += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong>' + entry2.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
                             }
                             htmlContent2 += '</div>';
                             htmlContent2 += '<div class="d-flex flex-column mb-3">';
-                            if (item2.beizhu === '民办') {
+                            if (entry2.beizhu_xuexiaomingcheng === '民办') {
                                 htmlContent2 += '<div class="d-flex flex-fill flex-row align-content-center justify-content-between danzhaocx-xuexiao-card-header-mb text-white mt-3">';
                             } else {
                                 htmlContent2 += '<div class="d-flex flex-fill flex-row align-content-center justify-content-between danzhaocx-xuexiao-card-header  text-white mt-3">';
                             }
-                            htmlContent2 += '<div><strong>考试方式:</strong> ' + item2.kaoshifangshi + '</div>';
-                            htmlContent2 += '<div><strong>可报志愿数量:</strong> ' + item2.kebaozhiyuansl + '</div>';
+                            htmlContent2 += '<div><strong>考试方式:</strong> ' + entry2.kaoshifangshi + '</div>';
+                            htmlContent2 += '<div><strong>可报志愿数量:</strong> ' + entry2.kebaozhiyuansl + '</div>';
                             htmlContent2 += '<div class="toggle-btn"><strong>考试内容<span class="triangle ps-1"><i class="fas fa-caret-down "></i></span></strong></div>';
                             htmlContent2 += '</div>';
 
-                            if (item2.beizhu === '民办') {
-                            htmlContent2 += '<div class="danzhaocx-xuexiao-card-content pt-3"><strong style="color: #e92b2b">考试内容：</strong> ' + item2.kaoshineirong + '</div>';
+                            if (entry2.beizhu_xuexiaomingcheng === '民办') {
+                            htmlContent2 += '<div class="danzhaocx-xuexiao-card-content pt-3"><strong style="color: #e92b2b">考试内容：</strong> ' + entry2.kaoshineirong + '</div>';
                         } else {
-                            htmlContent2 += '<div class="danzhaocx-xuexiao-card-content pt-3"><strong style="color: #2b5be9">考试内容：</strong> ' + item2.kaoshineirong + '</div>';
+                            htmlContent2 += '<div class="danzhaocx-xuexiao-card-content pt-3"><strong style="color: #2b5be9">考试内容：</strong> ' + entry2.kaoshineirong + '</div>';
                         }
                             htmlContent2 += '</div>';
                             htmlContent2 += '</div>';
