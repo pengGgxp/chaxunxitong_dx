@@ -34,22 +34,22 @@ function query_cx_danzhao(querymode) {
     var select_banxuexingzhi = [];
     $("input[name='banxuexingzhi']:checkbox").each(function () {
         if ($(this).prop('checked')) {
-            select_banxuexingzhi.push($(this).val())
+            select_banxuexingzhi.push($(this).val());
         }
 
     })
     var select_kaoshifangshi = [];
     $("input[name='kaoshifangshi']:checkbox").each(function () {
         if ($(this).prop('checked')) {
-            select_kaoshifangshi.push($(this).val())
+            select_kaoshifangshi.push($(this).val());
         }
 
     })
     var select_mingcheng = '';
     if (querymode === 'xuexiao') {
-        select_mingcheng = $("input[name='xuexiaomingcheng']").val()
+        select_mingcheng = $("input[name='xuexiaomingcheng']").val();
     } else if (querymode === 'zhuanye') {
-        select_mingcheng = $("input[name='zhuanyemingcheng']").val()
+        select_mingcheng = $("input[name='zhuanyemingcheng']").val();
     }
 
     var data_send = {
@@ -59,7 +59,7 @@ function query_cx_danzhao(querymode) {
         banxuexingzhi: select_banxuexingzhi,
         kaoshifangshi: select_kaoshifangshi,
         mingcheng: select_mingcheng,
-    }
+    };
 
     $.ajax({
         url: getsubmiturl(querymode),
@@ -89,11 +89,11 @@ function query_cx_danzhao(querymode) {
 
                         var htmlContent = '<div class="card mb-3 mt-3 px-2">';
                         htmlContent += '<div class="d-flex align-content-center justify-content-between danzhaocx-xuexiao-card-xuexiao mb-1 ">';
-                        htmlContent += '<div class="my-3"><strong>学校名称:</strong> ' + item.xuexiaomingcheng + '</div>';
+                        htmlContent += '<div class="my-3"><strong>学校名称:</strong> ' + item.xuexiaomingcheng_xuexiaomingcheng + '</div>';
                         if (item.beizhu === '民办') {
-                            htmlContent += '<div class="my-3 me-3 round-xz-mb px-3 text-white small my-auto"> <strong>' + item.beizhu + '院校' + '</strong></div>';
+                            htmlContent += '<div class="my-3 me-3 round-xz-mb px-3 text-white small my-auto"> <strong>' + item.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
                         } else {
-                            htmlContent += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong>' + item.beizhu + '院校' + '</strong></div>';
+                            htmlContent += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong>' + item.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
                         }
 
                         htmlContent += '</div>';
@@ -175,11 +175,11 @@ function query_cx_danzhao(querymode) {
 
                             htmlContent2 += '<div class="card mb-3 mt-3 px-2">';
                             htmlContent2 += '<div class="d-flex align-content-center justify-content-between danzhaocx-xuexiao-card-xuexiao mb-1">';
-                            htmlContent2 += '<div class="my-3"><strong>学校名称:</strong> ' + item2.xuexiaomingcheng + '</div>';
+                            htmlContent2 += '<div class="my-3"><strong>学校名称:</strong> ' + item2.xuexiaomingcheng_xuexiaomingcheng + '</div>';
                             if (item2.beizhu === '民办') {
-                                htmlContent2 += '<div class="my-3 me-3 round-xz-mb px-3 text-white small my-auto"> <strong>' + item2.beizhu + '院校' + '</strong></div>';
+                                htmlContent2 += '<div class="my-3 me-3 round-xz-mb px-3 text-white small my-auto"> <strong>' + item2.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
                             } else {
-                                htmlContent2 += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong>' + item2.beizhu + '院校' + '</strong></div>';
+                                htmlContent2 += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong>' + item2.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
                             }
                             htmlContent2 += '</div>';
                             htmlContent2 += '<div class="d-flex flex-column mb-3">';

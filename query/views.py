@@ -2,12 +2,12 @@ import encodings
 import json
 
 from django.core.serializers.json import DjangoJSONEncoder
-from django.db.models import Q, Count
+from django.db.models import Q, Count, F
 from django.http import JsonResponse, QueryDict
 from django.shortcuts import render
 from django.views import View
 
-from query.models import zhaoshengxinxi_danzhao, xuexiaoinfo, days, Images
+from query.models import zhaoshengxinxi_danzhao, xuexiaoinfo, days, Images, fenshuxianchaxun
 
 
 # Create your views here.
@@ -21,7 +21,7 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 
-def cx(request):
+def cx_danzhao(request):
     logo_image = Images.objects.filter(is_logo=True).first()
     watermark_image = Images.objects.filter(is_watermark=True).first()
     context = {
@@ -48,7 +48,7 @@ class query_danzhao_processing(View):
 
         result_data = {}
         queryset = zhaoshengxinxi_danzhao.objects.all()
-        queryset = queryset.select_related('xuexiaomingcheng')
+
         if querymode == 'xuexiao':
             if mingcheng:
                 queryset = queryset.filter(xuexiaomingcheng__xuexiaomingcheng__icontains=mingcheng)
@@ -67,11 +67,16 @@ class query_danzhao_processing(View):
             queryset = queryset.filter(kaoshifangshi__in=kaoshifangshi)
         result_data['querymode'] = querymode
 
+        queryset = queryset.all().annotate(
+            beizhu_xuexiaomingcheng=F('xuexiaomingcheng__beizhu'),
+            xuexiaomingcheng_xuexiaomingcheng=F('xuexiaomingcheng__xuexiaomingcheng'),
+        )
         tmp = list(queryset.all().values())
-        for entry in tmp:
-            beizhu = xuexiaoinfo.objects.get(id=entry.get('xuexiaomingcheng_id')).beizhu
-            xuexiaomingcheng = xuexiaoinfo.objects.get(id=entry.get('xuexiaomingcheng_id')).xuexiaomingcheng
-            entry.update({'beizhu': beizhu, 'xuexiaomingcheng': xuexiaomingcheng})
+
+        # for entry in tmp:
+        #     beizhu = xuexiaoinfo.objects.get(id=entry.get('xuexiaomingcheng_id')).beizhu
+        #     xuexiaomingcheng = xuexiaoinfo.objects.get(id=entry.get('xuexiaomingcheng_id')).xuexiaomingcheng
+        #     entry.update({'beizhu': beizhu, 'xuexiaomingcheng': xuexiaomingcheng})
 
         result_data['jieguo'] = json.dumps({'zhaoshengxinxi': tmp}, cls=DjangoJSONEncoder)
         if querymode == 'xuexiao':
@@ -86,8 +91,8 @@ class query_danzhao_processing(View):
                     new_dict[xuexiaomingcheng_id]['data'].append(entry)
                 else:
                     new_dict[xuexiaomingcheng_id] = {
-                        'xuexiaomingcheng': entry['xuexiaomingcheng'],
-                        'beizhu': entry['beizhu'],
+                        'xuexiaomingcheng_xuexiaomingcheng': entry['xuexiaomingcheng_xuexiaomingcheng'],
+                        'beizhu_xuexiaomingcheng': entry['beizhu_xuexiaomingcheng'],
                         'kaoshifangshi': entry['kaoshifangshi'],
                         'kebaozhiyuansl': entry['kebaozhiyuansl'],
                         'kaoshineirong': entry['kaoshineirong'],
@@ -106,14 +111,15 @@ class query_danzhao_processing(View):
                     new_dict[zhuanyemingcheng]['data'].append(entry)
                 else:
                     new_dict[zhuanyemingcheng] = {
-                        'xuexiaomingcheng': entry['xuexiaomingcheng'],
-                        'beizhu': entry['beizhu'],
+                        'xuexiaomingcheng_xuexiaomingcheng': entry['xuexiaomingcheng_xuexiaomingcheng'],
+                        'beizhu_xuexiaomingcheng': entry['beizhu_xuexiaomingcheng'],
                         'kaoshifangshi': entry['kaoshifangshi'],
                         'kebaozhiyuansl': entry['kebaozhiyuansl'],
                         'kaoshineirong': entry['kaoshineirong'],
                         'data': [entry],
                     }
             return JsonResponse(new_dict)
+
 
 def daojishi(request):
     logo_image = Images.objects.filter(is_logo=True).first()
@@ -123,4 +129,23 @@ def daojishi(request):
         'logo_image': logo_image,
         'watermark_image': watermark_image,
     }
-    return render(request, 'query/days.html',context=context)
+    return render(request, 'query/days.html', context=context)
+
+
+def cx_benkefenshuxian(request):
+    logo_image = Images.objects.filter(is_logo=True).first()
+    watermark_image = Images.objects.filter(is_watermark=True).first()
+    context = {
+        'nian': fenshuxianchaxun.objects.values_list('nianfen', flat=True).distinct(),
+        'banxuexingzhi': xuexiaoinfo.objects.values_list('beizhu', flat=True).distinct(),
+        'zhuanyeleibie': fenshuxianchaxun.objects.values_list('zhuanyeleibie', flat=True).distinct(),
+        'logo_image': logo_image,
+        'watermark_image': watermark_image,
+    }
+
+    return render(request, 'query/cx_benkefenshuxian.html', context=context)
+
+class query_fenshuxian_processing(View):
+    @staticmethod
+    def post(request):
+        return ''
