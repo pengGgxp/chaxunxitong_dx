@@ -85,7 +85,7 @@ function query_cx_danzhao(querymode) {
                     if (data_xuexiao.hasOwnProperty(key)) {
                         var item = data_xuexiao[key];
                         var itemDiv1 = document.createElement('div');
-                        itemDiv1.classList.add('cx-card', 'border-cx', 'mb-3', 'p-2');
+                        itemDiv1.classList.add('cx-card', 'border-cx', 'mb-3', 'p-3');
 
                         var htmlContent = '<div class="card mb-3 mt-3 px-2">';
                         htmlContent += '<div class="d-flex align-content-center justify-content-between danzhaocx-xuexiao-card-xuexiao mb-1 ">';
@@ -150,7 +150,7 @@ function query_cx_danzhao(querymode) {
                     if (data_zhuanye.hasOwnProperty(key2)) {
                         var item2 = data_zhuanye[key2];
                         var itemDiv2 = document.createElement('div');
-                        itemDiv2.classList.add('cx-card', 'border-cx', 'mb-3', 'p-2');
+                        itemDiv2.classList.add('cx-card', 'border-cx', 'mb-3', 'p-3');
 
                         var htmlContent2 = '';
                         for (var i2 = 0; i2 < item2.data.length; i2++) {

@@ -3,7 +3,7 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    font-family: "misans", sans-serif;
+    font-family: "misans", "Microsoft YaHei UI", ui-sans-serif;
     letter-spacing:1px;
 }
 
