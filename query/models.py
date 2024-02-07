@@ -1,6 +1,11 @@
 import datetime
+import os
 
+from django.conf import settings
 from django.db import models
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
+from django.utils.html import format_html
 
 
 # Create your models here.
@@ -78,9 +83,30 @@ class Images(models.Model):
     is_logo = models.BooleanField(default=False, verbose_name='LOGO')
     is_watermark = models.BooleanField(default=False, verbose_name='水印')
 
+    def admin_image(self):
+        return format_html(
+            '<img src="{}" width="100px"/>',
+            self.image.url,
+        )
+
+    admin_image.short_description = u'图片'
+    admin_image.allow_tags = True
+
     class Meta:
         verbose_name = '图片功能'
         verbose_name_plural = '图片功能'
+@receiver(post_delete, sender=Images)
+def delete_upload_files(sender, instance, **kwargs):
+    files = getattr(instance, 'image', '')
+    if not files:
+        return
+    fname = os.path.join(settings.MEDIA_ROOT, files.name)
+    if os.path.isfile(fname):
+        os.remove(fname)
+
+
+
+
 
 
 class fenshuxianchaxun(models.Model):

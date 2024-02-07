@@ -41,7 +41,7 @@ admin.site.register(days, DaysAdmin)
 
 class ImagesAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'image', 'is_logo', 'is_watermark'
+        'image', 'is_logo', 'is_watermark', 'admin_image'
     )
     form = ImagesForm
 
