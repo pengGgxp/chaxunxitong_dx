@@ -69,6 +69,16 @@
     padding: 0.5rem 1rem;
 }
 
+.fenshuxiancx-xuexiao-card-header{
+    background-color: rgba(43, 91, 233, 1);
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px);
+}
+
+.fenshuxiancx-xuexiao-card-header-mb{
+    background-color: rgb(233, 43, 43);
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px);
+}
+
 @font-face {
     font-family: 'misans';
     src: local("/static/font/MiSans-Bold.ttf");

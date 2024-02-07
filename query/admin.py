@@ -64,7 +64,7 @@ admin.site.register(fenshuxianchaxun, fenshuxianchaxunAdmin)
 
 class ListGroupItemAdmin(ImportExportModelAdmin):
     list_display = (
-        'image', 'title', 'content', 'href', 'view_count'
+        'image', 'title', 'content', 'href', 'view_count','order'
     )
     autocomplete_fields = ['image']
 

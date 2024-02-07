@@ -113,14 +113,14 @@ class ListGroupItem(models.Model):
     content = models.TextField(verbose_name='内容')
     href = models.TextField(verbose_name='链接')
     view_count = models.IntegerField(default=0, verbose_name='访问量')
-
+    order = models.IntegerField(default=0, verbose_name='排序顺序')
     def increase_view_count(self):
         self.view_count += 1
         self.save()
     class Meta:
         verbose_name = '首页跳转列表'
         verbose_name_plural = '首页跳转列表'
-
+        ordering = ['order']
 class fenshuxianchaxun(models.Model):
     xuexiaomingcheng = models.ForeignKey(xuexiaoinfo, on_delete=models.CASCADE, verbose_name='学校名称')
     zhuanyeleibie = models.CharField(max_length=200, verbose_name='专业类别')
@@ -134,3 +134,11 @@ class fenshuxianchaxun(models.Model):
     class Meta:
         verbose_name = '分数线查询'
         verbose_name_plural = '分数线查询'
+
+class Page(models.Model):
+    url = models.URLField(unique=True)
+    view_count = models.PositiveIntegerField(default=0)
+
+    def increase_view_count(self):
+        self.view_count += 1
+        self.save()

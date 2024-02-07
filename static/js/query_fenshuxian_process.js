@@ -95,32 +95,21 @@ function query_fenshuxian(querymode) {
                         var itemDiv1 = document.createElement('div');
                         itemDiv1.classList.add('cx-card', 'border-cx', 'mb-3', 'p-2');
 
-                        var htmlContent = '<div class="card px-2">';
-                        htmlContent += '<div class="d-flex align-content-center justify-content-between danzhaocx-xuexiao-card-xuexiao mb-1 ">';
-                        htmlContent += '<div class="my-3"><strong>学校名称:</strong> ' + item.xuexiaomingcheng_xuexiaomingcheng + '</div>';
+                        var htmlContent = '<div>';
                         if (item.beizhu_xuexiaomingcheng === '民办') {
-                            htmlContent += '<div class="my-3 me-3 round-xz-mb px-3 text-white small my-auto"> <strong>' + item.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
+                            htmlContent += '<div class="d-flex align-content-center justify-content-between fenshuxiancx-xuexiao-card-header-mb ps-2">';
                         } else {
-                            htmlContent += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong>' + item.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
+                            htmlContent += '<div class="d-flex align-content-center justify-content-between fenshuxiancx-xuexiao-card-header ps-2">';
                         }
-
+                        htmlContent += '<div class="my-3 text-white"><strong>学校名称:</strong> ' + item.xuexiaomingcheng_xuexiaomingcheng + '</div>';
+                        if (item.beizhu_xuexiaomingcheng === '民办') {
+                            htmlContent += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong style="color: #E92B2B">' + item.beizhu_xuexiaomingcheng + '</strong></div>';
+                        } else {
+                            htmlContent += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong style="color: #2b5be9">' + item.beizhu_xuexiaomingcheng + '</strong></div>';
+                        }
                         htmlContent += '</div>';
 
                         htmlContent += '<div class="d-flex flex-column mb-3">';
-                        // if (item.beizhu_xuexiaomingcheng === '民办') {
-                        //     htmlContent += '<div class="d-flex flex-fill flex-row align-content-center justify-content-between danzhaocx-xuexiao-card-header-mb text-white mt-3">';
-                        // } else {
-                        //     htmlContent += '<div class="d-flex flex-fill flex-row align-content-center justify-content-between danzhaocx-xuexiao-card-header  text-white mt-3">';
-                        // }
-                        // htmlContent += '<div><strong>最低分数:</strong> ' + item.zuidifenshu + '</div>';
-                        // htmlContent += '<div><strong>最低位次:</strong> ' + item.zuidiweici + '</div>';
-                        // if(select_zhuan_ben==='本科'){
-                        //     htmlContent += '<div><strong>本科资格线:</strong> ' + item.benkezigexian + '</div>';
-                        // }else if(select_zhuan_ben==='专科'){
-                        //     htmlContent += '<div><strong>专科资格线:</strong> ' + item.zhuankezigexian + '</div>';
-                        // }
-
-                        // htmlContent += '</div>';
                         htmlContent += '</div>';
                         htmlContent += '</div>';
 
@@ -139,9 +128,9 @@ function query_fenshuxian(querymode) {
                             htmlContent += '<div class="mb-3"><strong>最低分数:</strong> ' + entry.zuidifenshu + '</div>';
                             htmlContent += '<div class="mb-3"><strong>最低位次:</strong> ' + entry.zuidiweici + '</div>';
                             if (select_zhuan_ben === '本科') {
-                                htmlContent += '<div class="mb-3"><strong>本科资格线:</strong> ' + entry.benkezigexian + '</div>';
+                                htmlContent += '<div class="mb-3"><strong>资格线:</strong> ' + entry.benkezigexian + '</div>';
                             } else if (select_zhuan_ben === '专科') {
-                                htmlContent += '<div class="mb-3"><strong>专科资格线:</strong> ' + entry.zhuankezigexian + '</div>';
+                                htmlContent += '<div class="mb-3"><strong>资格线:</strong> ' + entry.zhuankezigexian + '</div>';
                             }
                             htmlContent += '</div>';
                             htmlContent += '</div>';
@@ -181,20 +170,24 @@ function query_fenshuxian(querymode) {
                             htmlContent2 += '<div class="mb-3"><strong>最低分数:</strong> ' + entry2.zuidifenshu + '</div>';
                             htmlContent2 += '<div class="mb-3"><strong>最低位次:</strong> ' + entry2.zuidiweici + '</div>';
                             if (select_zhuan_ben === '本科') {
-                                htmlContent2 += '<div class="mb-3"><strong>本科资格线:</strong> ' + entry2.benkezigexian + '</div>';
+                                htmlContent2 += '<div class="mb-3"><strong>资格线:</strong> ' + entry2.benkezigexian + '</div>';
                             } else if (select_zhuan_ben === '专科') {
-                                htmlContent2 += '<div class="mb-3"><strong>专科资格线:</strong> ' + entry2.zhuankezigexian + '</div>';
+                                htmlContent2 += '<div class="mb-3"><strong>资格线:</strong> ' + entry2.zhuankezigexian + '</div>';
                             }
                             htmlContent2 += '</div>';
                             htmlContent2 += '</div>';
 
-                            htmlContent2 += '<div class="card px-2">';
-                            htmlContent2 += '<div class="d-flex align-content-center justify-content-between danzhaocx-xuexiao-card-xuexiao mb-1">';
-                            htmlContent2 += '<div class="my-3"><strong>学校名称:</strong> ' + entry2.xuexiaomingcheng_xuexiaomingcheng + '</div>';
+                            htmlContent2 += '<div>';
                             if (entry2.beizhu_xuexiaomingcheng === '民办') {
-                                htmlContent2 += '<div class="my-3 me-3 round-xz-mb px-3 text-white small my-auto"> <strong>' + entry2.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
+                                htmlContent2 += '<div class="d-flex align-content-center justify-content-between fenshuxiancx-xuexiao-card-header-mb ps-2">';
                             } else {
-                                htmlContent2 += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong>' + entry2.beizhu_xuexiaomingcheng + '院校' + '</strong></div>';
+                                htmlContent2 += '<div class="d-flex align-content-center justify-content-between fenshuxiancx-xuexiao-card-header ps-2">';
+                            }
+                            htmlContent2 += '<div class="my-3 text-white"><strong>学校名称:</strong> ' + entry2.xuexiaomingcheng_xuexiaomingcheng + '</div>';
+                            if (entry2.beizhu_xuexiaomingcheng === '民办') {
+                                htmlContent2 += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong style="color: #E92B2B">' + entry2.beizhu_xuexiaomingcheng + '</strong></div>';
+                            } else {
+                                htmlContent2 += '<div class="my-3 me-3 round-xz px-3 text-white small my-auto"> <strong style="color: #2b5be9">' + entry2.beizhu_xuexiaomingcheng + '</strong></div>';
                             }
                             htmlContent2 += '</div>';
                             htmlContent2 += '</div>';
