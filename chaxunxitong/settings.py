@@ -90,7 +90,7 @@ DATABASES = {
     }
 }
 
-#防止数据导入失败出现配置错误提示
+# 防止数据导入失败出现配置错误提示
 IMPORT_EXPORT_USE_TRANSACTIONS = False
 
 # Password validation
@@ -129,7 +129,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    BASE_DIR / "media",
+    BASE_DIR / "query", "static",
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
@@ -145,4 +145,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = []
 # DATA_UPLOAD_MAX_NUMBER_FIELDS = 100000000
-
