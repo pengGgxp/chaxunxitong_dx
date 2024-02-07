@@ -13,6 +13,7 @@ urlpatterns = [
     path('cx_benkefenshuxian/', views.cx_benkefenshuxian),
     path('cx_zhuankefenshuxian/', views.cx_zhuankefenshuxian),
     path('query/fenshuxian/', views.query_fenshuxian_processing.as_view()),
+    path('increase_view_count/', views.increase_view_count),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}, name='media'),
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}, name='static'),
 ]

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ExportMixin, ImportExportModelAdmin
 
-from query.models import xuexiaoinfo, zhaoshengxinxi_danzhao, days, Images, fenshuxianchaxun
+from query.models import xuexiaoinfo, zhaoshengxinxi_danzhao, days, Images, fenshuxianchaxun, ListGroupItem
 from query.resources import XuexiaoInfoResource, ZhaoshengXinxi_DanZhaoResource, DaysResource, fenshuxianchaxunResource
 from query.form import ImagesForm
 
@@ -39,11 +39,12 @@ class DaysAdmin(ImportExportModelAdmin):
 admin.site.register(days, DaysAdmin)
 
 
-class ImagesAdmin(admin.ModelAdmin):
+class ImagesAdmin(ImportExportModelAdmin):
     list_display = (
-        'image', 'is_logo', 'is_watermark', 'admin_image'
+        'id', 'image', 'is_logo', 'is_watermark', 'admin_image'
     )
     form = ImagesForm
+    search_fields = ['id']
 
 
 admin.site.register(Images, ImagesAdmin)
@@ -59,3 +60,13 @@ class fenshuxianchaxunAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(fenshuxianchaxun, fenshuxianchaxunAdmin)
+
+
+class ListGroupItemAdmin(ImportExportModelAdmin):
+    list_display = (
+        'image', 'title', 'content', 'href', 'view_count'
+    )
+    autocomplete_fields = ['image']
+
+
+admin.site.register(ListGroupItem, ListGroupItemAdmin)

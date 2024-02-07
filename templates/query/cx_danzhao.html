@@ -52,28 +52,30 @@
                 </label>
             </div>
             <div class="mt-3">
-                <label class="me-2">办学性质:
-                    {% if banxuexingzhi %}
-                        {% for elem in banxuexingzhi %}
-                            <div class="form-check form-check-inline">
+                <label class="me-2">办学性质:</label>
+                {% if banxuexingzhi %}
+                    {% for elem in banxuexingzhi %}
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
                                 <input name="banxuexingzhi" class="form-check-input" type="checkbox" value="{{ elem }}">
-                                <label class="form-check-label">{{ elem }}</label>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                </label>
+                                {{ elem }}
+                            </label>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
             <div class="mt-3">
-                <label class="me-2">考试方式:
-                    {% if fangshi %}
-                        {% for elem in fangshi %}
-                            <div class="form-check form-check-inline">
+                <label class="me-2">考试方式:</label>
+                {% if fangshi %}
+                    {% for elem in fangshi %}
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
                                 <input name="kaoshifangshi" class="form-check-input" type="checkbox" value="{{ elem }}">
-                                <label class="form-check-label">{{ elem }}</label>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                </label>
+                                {{ elem }}
+                            </label>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
             <div id="xuexiaomode" class="mt-3 d-grid">
                 <label>

@@ -7,18 +7,27 @@ from django.http import JsonResponse, QueryDict
 from django.shortcuts import render
 from django.views import View
 
-from query.models import zhaoshengxinxi_danzhao, xuexiaoinfo, days, Images, fenshuxianchaxun
+from query.models import zhaoshengxinxi_danzhao, xuexiaoinfo, days, Images, fenshuxianchaxun, ListGroupItem
 
 
 # Create your views here.
 def index(request):
     logo_image = Images.objects.filter(is_logo=True).first()
     watermark_image = Images.objects.filter(is_watermark=True).first()
+    listitem = ListGroupItem.objects.all()
     context = {
         'logo_image': logo_image,
         'watermark_image': watermark_image,
+        'listitem': listitem,
     }
     return render(request, 'index.html', context=context)
+
+
+def increase_view_count(request):
+    list_group_item_id = request.POST.get('list_itemid')
+    list_group_item = ListGroupItem.objects.get(id=list_group_item_id)
+    list_group_item.increase_view_count()
+    return JsonResponse({'jieguo': 'yes', 'href': list_group_item.href})
 
 
 def cx_danzhao(request):
@@ -140,6 +149,7 @@ def cx_benkefenshuxian(request):
 
     return render(request, 'query/cx_benkefenshuxian.html', context=context)
 
+
 def cx_zhuankefenshuxian(request):
     logo_image = Images.objects.filter(is_logo=True).first()
     watermark_image = Images.objects.filter(is_watermark=True).first()
@@ -152,6 +162,7 @@ def cx_zhuankefenshuxian(request):
     }
 
     return render(request, 'query/cx_zhuankefenshuxian.html', context=context)
+
 
 class query_fenshuxian_processing(View):
     @staticmethod

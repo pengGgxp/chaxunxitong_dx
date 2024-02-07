@@ -95,6 +95,8 @@ class Images(models.Model):
     class Meta:
         verbose_name = '图片功能'
         verbose_name_plural = '图片功能'
+
+
 @receiver(post_delete, sender=Images)
 def delete_upload_files(sender, instance, **kwargs):
     files = getattr(instance, 'image', '')
@@ -105,9 +107,19 @@ def delete_upload_files(sender, instance, **kwargs):
         os.remove(fname)
 
 
+class ListGroupItem(models.Model):
+    image = models.ForeignKey('Images', on_delete=models.CASCADE, verbose_name='图片')
+    title = models.TextField(verbose_name='标题')
+    content = models.TextField(verbose_name='内容')
+    href = models.TextField(verbose_name='链接')
+    view_count = models.IntegerField(default=0, verbose_name='访问量')
 
-
-
+    def increase_view_count(self):
+        self.view_count += 1
+        self.save()
+    class Meta:
+        verbose_name = '首页跳转列表'
+        verbose_name_plural = '首页跳转列表'
 
 class fenshuxianchaxun(models.Model):
     xuexiaomingcheng = models.ForeignKey(xuexiaoinfo, on_delete=models.CASCADE, verbose_name='学校名称')

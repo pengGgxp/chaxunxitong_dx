@@ -48,29 +48,34 @@
                 </label>
             </div>
             <div class="mt-3">
-                <label class="me-2">办学性质:
-                    {% if banxuexingzhi %}
-                        {% for elem in banxuexingzhi %}
-                            <div class="form-check form-check-inline">
-                                <input name="banxuexingzhi" class="form-check-input" type="checkbox" value="{{ elem }}">
-                                <label class="form-check-label">{{ elem }}</label>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                </label>
+                <label class="me-2">办学性质:</label>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input name="banxuexingzhi" class="form-check-input" type="checkbox" value="公办">
+                        公办
+                    </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input name="banxuexingzhi" class="form-check-input" type="checkbox" value="民办">
+                        民办
+                    </label>
+                </div>
+
             </div>
-{#            <div class="mt-3 d-grid">#}
-{#                <label class="me-2">#}
-{#                    专业类别:#}
-{#                    <select class="form-select d-block me-2 mb-2 mt-2" name="zhuanyeleibie">#}
-{#                        {% if zhuanyeleibie %}#}
-{#                            {% for elem in zhuanyeleibie %}#}
-{#                                <option value="{{ elem }}">{{ elem }}</option>#}
-{#                            {% endfor %}#}
-{#                        {% endif %}#}
-{#                    </select>#}
-{#                </label>#}
-{#            </div>#}
+            {#            <div class="mt-3 d-grid">#}
+            {#                <label class="me-2">#}
+            {#                    专业类别:#}
+            {#                    <select class="form-select d-block me-2 mb-2 mt-2" name="zhuanyeleibie">#}
+            {#                        {% if zhuanyeleibie %}#}
+            {#                            {% for elem in zhuanyeleibie %}#}
+            {#                                <option value="{{ elem }}">{{ elem }}</option>#}
+            {#                            {% endfor %}#}
+            {#                        {% endif %}#}
+            {#                    </select>#}
+            {#                </label>#}
+            {#            </div>#}
             <div id="fenshu" type="number" class="mt-3 d-grid">
                 <label>
                     <input type="number" name="fenshu" class="form-control d-block"

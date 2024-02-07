@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block link %}
-<link rel="stylesheet" href="{% static 'css/carousel.css' %}">
-{#<link rel="stylesheet" href="{% static 'css/list-groups.css' %}">#}
+    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+    {#<link rel="stylesheet" href="{% static 'css/list-groups.css' %}">#}
 {% endblock %}
 
 {% block style %}
@@ -18,90 +18,110 @@
 {% endblock %}
 
 {% block con %}
-{#  <div id="myCarousel" class="carousel slide cx-card p-2 mt-3" data-bs-ride="carousel">#}
-{#    <div class="carousel-indicators">#}
-{#      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>#}
-{#      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>#}
-{#      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>#}
-{#    </div>#}
-{#    <div class="carousel-inner">#}
-{#      <div class="carousel-item active">#}
-{#        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>#}
-{#        <div class="container">#}
-{#          <div class="carousel-caption text-start">#}
-{#            <h1>Example headline.</h1>#}
-{#            <p>Some representative placeholder content for the first slide of the carousel.</p>#}
-{#            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#      <div class="carousel-item">#}
-{#        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>#}
-{#        <div class="container">#}
-{#          <div class="carousel-caption">#}
-{#            <h1>Another example headline.</h1>#}
-{#            <p>Some representative placeholder content for the second slide of the carousel.</p>#}
-{#            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#      <div class="carousel-item">#}
-{#        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>#}
-{#        <div class="container">#}
-{#          <div class="carousel-caption text-end">#}
-{#            <h1>One more for good measure.</h1>#}
-{#            <p>Some representative placeholder content for the third slide of this carousel.</p>#}
-{#            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">#}
-{#      <span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
-{#      <span class="visually-hidden">Previous</span>#}
-{#    </button>#}
-{#    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">#}
-{#      <span class="carousel-control-next-icon" aria-hidden="true"></span>#}
-{#      <span class="visually-hidden">Next</span>#}
-{#    </button>#}
-{#  </div>#}
+    {% csrf_token %}
+    {#  <div id="myCarousel" class="carousel slide cx-card p-2 mt-3" data-bs-ride="carousel">#}
+    {#    <div class="carousel-indicators">#}
+    {#      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>#}
+    {#      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>#}
+    {#      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>#}
+    {#    </div>#}
+    {#    <div class="carousel-inner">#}
+    {#      <div class="carousel-item active">#}
+    {#        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>#}
+    {#        <div class="container">#}
+    {#          <div class="carousel-caption text-start">#}
+    {#            <h1>Example headline.</h1>#}
+    {#            <p>Some representative placeholder content for the first slide of the carousel.</p>#}
+    {#            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>#}
+    {#          </div>#}
+    {#        </div>#}
+    {#      </div>#}
+    {#      <div class="carousel-item">#}
+    {#        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>#}
+    {#        <div class="container">#}
+    {#          <div class="carousel-caption">#}
+    {#            <h1>Another example headline.</h1>#}
+    {#            <p>Some representative placeholder content for the second slide of the carousel.</p>#}
+    {#            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>#}
+    {#          </div>#}
+    {#        </div>#}
+    {#      </div>#}
+    {#      <div class="carousel-item">#}
+    {#        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>#}
+    {#        <div class="container">#}
+    {#          <div class="carousel-caption text-end">#}
+    {#            <h1>One more for good measure.</h1>#}
+    {#            <p>Some representative placeholder content for the third slide of this carousel.</p>#}
+    {#            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>#}
+    {#          </div>#}
+    {#        </div>#}
+    {#      </div>#}
+    {#    </div>#}
+    {#    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">#}
+    {#      <span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
+    {#      <span class="visually-hidden">Previous</span>#}
+    {#    </button>#}
+    {#    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">#}
+    {#      <span class="carousel-control-next-icon" aria-hidden="true"></span>#}
+    {#      <span class="visually-hidden">Next</span>#}
+    {#    </button>#}
+    {#  </div>#}
+
     <div class="list-group w-auto mt-3 cx-card">
-  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-      <img class="rounded-circle flex-shrink-0" width="32" height="32"
-             src="{{ watermark_image.image.url }}" alt="Watermark">
-    <div class="d-flex gap-2 w-100 justify-content-between">
-      <div>
-        <h6 class="mb-0">List group item heading</h6>
-        <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
-      </div>
-      <small class="opacity-50 text-nowrap">now</small>
+        {% if listitem %}
+            {% for elem in listitem %}
+                <a href="#" list_itemid="{{ elem.id }}"
+                   class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                   aria-current="true">
+                    <img class="rounded flex-shrink-0" width="32" height="32"
+                         src="{{ elem.image.image.url }}" alt="Watermark">
+                    <div class="d-flex gap-2 w-100 justify-content-between">
+                        <div>
+                            <h6 class="mb-0">{{ elem.title }}</h6>
+                            <p class="mb-0 opacity-75">{{ elem.content }}</p>
+                        </div>
+                        <small class="opacity-50 text-nowrap">{{ elem.view_count }}<span
+                                class="io io-redian"></span></small>
+                    </div>
+                </a>
+            {% endfor %}
+        {% endif %}
     </div>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-    <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
-    <div class="d-flex gap-2 w-100 justify-content-between">
-      <div>
-        <h6 class="mb-0">Another title here</h6>
-        <p class="mb-0 opacity-75">Some placeholder content in a paragraph that goes a little longer so it wraps to a new line.</p>
-      </div>
-      <small class="opacity-50 text-nowrap">3d</small>
-    </div>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-    <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
-    <div class="d-flex gap-2 w-100 justify-content-between">
-      <div>
-        <h6 class="mb-0">Third heading</h6>
-        <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
-      </div>
-      <small class="opacity-50 text-nowrap">1w</small>
-    </div>
-  </a>
-</div>
 {% endblock %}
 
 
 {% block script %}
+    <script>
+        $(document).ready(function () {
+            $('.list-group-item').click(function (event) {
+                event.preventDefault(); // 阻止默认的链接跳转行为
 
+                var listItemId = $(this).attr('list_itemid');
+                // 发送 POST 请求
+                $.ajax({
+                    type: 'POST',
+                    url: '/increase_view_count/', // 替换为你的 AJAX 请求 URL
+                    dataType: 'json',
+                    data: {
+                        'list_itemid': listItemId
+                    },
+                    context: this,
+                    headers:
+                        {
+                            "X-CSRFToken": $("input[name='csrfmiddlewaretoken']").val(),
+                        },
+                    success: function (response) {
+                        // 在请求成功后，继续进行页面跳转
+                        console.log(response)
+                        window.location.href = response.href;
+                    },
+                    error: function (xhr, errmsg, err) {
+                        // 处理请求错误
+                        console.log(errmsg);
+                    }
+                });
+            });
+        });
+    </script>
 {% endblock %}
 
